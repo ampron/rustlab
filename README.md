@@ -2,6 +2,12 @@
 
 This is a demonstration/experiment in how to use the Rust FFI to create a C library and use that in Matlab through it's support for external C libraries.
 
+So far demonstrations for the following are included:
+* pass a c-style string to a rust library from Matlab
+* add two doubles (f64s) in rust library
+* from Matlab: create a struct in a rust library, hold a pointer to it, and pass the pointer back to free the struct instance in memory
+* pass a Matlab matrix to rust library as a flat array, manipulate it, and see the results in Matlab
+
 ## Rust Language References
 * [Creating a C API for a Rust library](http://www.joshmatthews.net/blog/2015/10/creating-a-c-api-for-a-rust-library/)
 * [Writing Unsafe and Low-Level Code in Rust](http://smallcultfollowing.com/rust-int-variations/isize-usize/guide-unsafe.html)
