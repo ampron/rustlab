@@ -1,0 +1,11 @@
+[package]
+name = "example_rustlib"
+version = "0.1.0"
+authors = ["Alex Pronschinske <ampron@gmail.com>"]
+
+[dependencies]
+libc = "0.1"
+
+[lib]
+name = "example_rustlib"
+crate-type = ["dylib"]
