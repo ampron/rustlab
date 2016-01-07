@@ -1,5 +1,6 @@
 addpath('example_rustlib/target/release');
 [notfound, warnings] = loadlibrary('example_rustlib', 'example_rustlib.h', 'alias', 'rustlib');
+libfunctions rustlib -full
 
 if libisloaded('rustlib')
     % pass a string
@@ -17,6 +18,14 @@ if libisloaded('rustlib')
     % this function will multiply each element by 3
     m_out = calllib('rustlib', 'mult_array', m, numel(m));
     m_out = reshape(m_out, m_shape)
+    % apply nearest-neighbor smoothing to an array
+    X = randn(10000, 1);
+    smX = calllib('rustlib', 'nn_smooth', X, numel(X), 100);
+    figure;
+    hold on;
+    plot(X, 'o');
+    plot((1:10000-200) + 100, smX(101:end-100));
+    hold off;
     % Done
     unloadlibrary('rustlib');
 else
