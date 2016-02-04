@@ -75,14 +75,14 @@ impl SumBuffer {
 
 fn interal_nn_smooth(x: &[f64], n: usize) -> Vec<f64> {
     let w = 2 * n + 1;
-    let mut sbuf = SumBuffer::from_range(&x[0..w]);
+    let mut sbuf = SumBuffer::from_range(&x[0 .. w]);
     
     let mut sx = vec![0.0; x.len() - 2 * n];
-    let mut i_sx = 0;
-    for i in n..(x.len() - n - 1) {
+    sx[0] = sbuf.average();
+    let mut i_sx = 1;
+    for i in w .. x.len() {
         sbuf.push(x[i]);
         sx[i_sx] = sbuf.average();
-        
         i_sx = i_sx + 1;
     }
     return sx;
@@ -97,7 +97,7 @@ pub unsafe extern "C" fn nn_smooth(rawp_a: *mut libc::c_double, len: libc::c_int
     let sm_array: Vec<f64> = interal_nn_smooth(array, n as usize);
     let mut i_sm = 0;
     let un = n as usize;
-    for i in un..(array.len() - un - 1) {
+    for i in un..(array.len() - un) {
         array[i] = sm_array[i_sm];
         i_sm = i_sm + 1;
     }
