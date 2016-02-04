@@ -16,6 +16,9 @@ So far demonstrations for the following are included:
 * [Using Rust objects from other languages](http://jakegoulding.com/rust-ffi-omnibus/objects/)
 * [Creating a Rust Dynamic Library](http://oppenlander.me/articles/rust-ffi)
 
+## Matlab – Rust Interfacing References
+* [Allowing Matlab to Talk to Rust - Elliot Smith](http://smitec.io/2016/02/04/allowing-matlab-to-talk-to-rust.html)
+
 ## Matlab – C Interface References
 * [Call C Shared Libraries](http://www.mathworks.com/help/matlab/using-c-shared-library-functions-in-matlab-.html)
 * [Pass Pointers](http://www.mathworks.com/help/matlab/matlab_external/pass-pointers.html)
